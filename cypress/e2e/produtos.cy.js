@@ -3,7 +3,7 @@
 describe('Funcionalidade Pagina de produtos', () => {
     
     beforeEach(() => {
-        cy.visit('http://lojaebac.ebaconline.art.br/produtos')
+        cy.visit('http://lojaebac.ebaconline.art.br/produtos/')
 
     });
     it('Deve selecionar um produto da lista', () => {
@@ -29,4 +29,8 @@ describe('Funcionalidade Pagina de produtos', () => {
         cy.get('.dropdown-toggle > .mini-cart-items').should('contain' , quantidade)
         cy.get('.woocommerce-message').should ('contain',quantidade + ' x "Ariel Roll Sleeve Sweatshirt" foram adicionados no seu carrinho .')
          });
+
+         it.only  ('Deve adicionar produtos ao carrinho-Usando Comando Customizado', () => {
+            cy.addProdutos('Atlas Fitness Tank', 'M', 'Blue', 2 )
+     });
 });
